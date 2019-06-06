@@ -16,10 +16,10 @@
 					<div class="col-md-4">
 						<div class="card mb-5 shadow-sm">
 							<div class="card-body text-center">
-								<h3>{{ group.title }}</h3>
+								<h6>{{ group.title }}</h6>
 								<div class="card-body h-100 text-center">
 									<img src="{{ group.productgroupimage_set.all.0.image.url }}" alt="product image"
-										 class="card-img-top img-fluid">
+										 class="card-img-top img-fluid rounded">
 								</div>
 								<div class="text-center">
 									<a class="btn btn-primary" role="button" href="{% url 'group' group.id %}">View</a>
