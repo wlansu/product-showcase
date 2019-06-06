@@ -25,6 +25,5 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("", views.products, name="products"),
     path("product/<uuid:product_id>/", views.product, name="product"),
-    path('s3direct/', include('s3direct.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + \
               static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

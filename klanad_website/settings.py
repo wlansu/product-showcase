@@ -42,7 +42,6 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "klanad.apps.KlanadConfig",
-    "s3direct",
 ]
 
 MIDDLEWARE = [
@@ -123,6 +122,8 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
 
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
@@ -132,19 +133,13 @@ AWS_S3_REGION_NAME = 'us-east-1'
 
 # The endpoint of your bucket, more info:
 # http://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region
-AWS_S3_ENDPOINT_URL = 'https://s3-us-east-1.amazonaws.com'
+AWS_S3_ENDPOINT_URL = 'https://s3.us-east-1.amazonaws.com'
 AWS_STORAGE_BUCKET_NAME = 'klanad1'
 AWS_ACCESS_KEY_ID = env("AWS_ACCESS_KEY_ID")
 AWS_SECRET_ACCESS_KEY = env("AWS_SECRET_ACCESS_KEY")
-
-S3DIRECT_DESTINATIONS = {
-    'products': {
-        # "key" [required] The location to upload file
-        #       1. String: folder path to upload to
-        #       2. Function: generate folder path + filename using a function
-        'key': 'products/images',
-    }
-}
+AWS_DEFAULT_ACL = "private"
+AWS_BUCKET_ACL = "private"
+AWS_S3_HOST = "s3.us-east-1.amazonaws.com"
 
 sentry_sdk.init(
     dsn="https://8407e52468864a039150c14f2a9c3ee2@sentry.io/1476234",

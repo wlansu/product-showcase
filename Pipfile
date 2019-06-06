@@ -14,8 +14,9 @@ django-environ = "*"
 gunicorn = "*"
 psycopg2-binary = "*"
 whitenoise = "*"
-django-s3direct = "*"
 sentry-sdk = "*"
+django-storages = "*"
+boto3 = "*"
 
 [requires]
 python_version = "3.7"

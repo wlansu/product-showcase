@@ -3,7 +3,6 @@ import uuid
 from django.db import models
 from django.db.models import CASCADE
 from model_utils.models import TimeStampedModel
-from s3direct.fields import S3DirectField
 
 
 class Address(models.Model):
@@ -134,7 +133,7 @@ class ProductImage(TimeStampedModel):
     """An image for a product."""
 
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    image = S3DirectField(dest='products')
+    image = models.ImageField(upload_to="products")
     product = models.ForeignKey(Product, on_delete=CASCADE)
     position = models.PositiveIntegerField(
         help_text="The order in which images are shown, in ascending order.",
