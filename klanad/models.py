@@ -58,7 +58,7 @@ class ProductGroup(models.Model):
     """A group of products."""
 
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    title = models.CharField(max_length=50, help_text="The name of the company.")
+    title = models.CharField(max_length=50, help_text="The name of the product group.")
     description = models.TextField(null=True, blank=True)
 
     class Meta:
@@ -148,7 +148,7 @@ class ProductGroupImage(TimeStampedModel):
     """Image for a ProductGroup."""
 
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    image = models.ImageField(upload_to="products")
+    image = models.ImageField(upload_to="product-groups")
     group = models.ForeignKey(ProductGroup, on_delete=CASCADE)
 
     class Meta:
