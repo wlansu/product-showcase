@@ -15,6 +15,7 @@ gunicorn = "*"
 psycopg2-binary = "*"
 whitenoise = "*"
 django-s3direct = "*"
+sentry-sdk = "*"
 
 [requires]
 python_version = "3.7"

@@ -12,6 +12,11 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import os
 import environ
+
+import sentry_sdk
+from sentry_sdk.integrations.django import DjangoIntegration
+
+
 env = environ.Env(
     DEBUG=(bool, False)
 )
@@ -137,6 +142,11 @@ S3DIRECT_DESTINATIONS = {
         'key': 'products/images',
     }
 }
+
+sentry_sdk.init(
+    dsn="https://8407e52468864a039150c14f2a9c3ee2@sentry.io/1476234",
+    integrations=[DjangoIntegration()]
+)
 
 # Configure Django App for Heroku.
 import django_heroku

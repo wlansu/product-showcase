@@ -23,7 +23,7 @@ from klanad import views
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("products/", views.products, name="products"),
+    path("", views.products, name="products"),
     path("product/<uuid:product_id>/", views.product, name="product"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + \
               static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
