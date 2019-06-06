@@ -2,3 +2,37 @@ footer {
     padding-top: 3rem;
     padding-bottom: 3rem;
 }
+
+body {
+    color: #6c6c6c;
+}
+
+a {
+    color: #f3783f;
+}
+
+h1 {
+   color: #626262;
+}
+
+.nav-padding {
+    padding: 0.1rem 20rem;
+}
+
+.klanad-dark-grey {
+    color: #626262;
+}
+
+.klanad-orange {
+    color: #f3783f !important;
+}
+
+.bg-klanad-light-grey {
+    background-color: rgba(108,108,108, 0.3);
+}
+
+.btn-klanad-orange {
+    color: #626262;
+    background-color: rgba(243,120,63, 0.7);
+    border-color: #f3783f;
+}
