@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cd28517e-6b41-4d9d-b6fb-e370d4fdff25" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/klanad_website/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/klanad_website/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/klanad_website/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/klanad_website/settings.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -79,11 +79,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/klanad_website/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="475">
-              <caret line="148" column="1" selection-start-line="148" selection-start-column="1" selection-end-line="148" selection-end-column="1" />
+            <state relative-caret-position="280">
+              <caret line="135" column="34" selection-start-line="135" selection-start-column="34" selection-end-line="135" selection-end-column="34" />
               <folding>
                 <element signature="e#315#324#0" expanded="true" />
               </folding>
@@ -151,7 +151,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/klanad_website/urls.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="405">
@@ -225,8 +225,8 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/klanad/models.py" />
-        <option value="$PROJECT_DIR$/klanad_website/settings.py" />
         <option value="$PROJECT_DIR$/klanad_website/urls.py" />
+        <option value="$PROJECT_DIR$/klanad_website/settings.py" />
       </list>
     </option>
   </component>
@@ -443,12 +443,12 @@
       <workItem from="1558815346711" duration="3856000" />
       <workItem from="1558892231960" duration="3159000" />
       <workItem from="1558962765494" duration="4737000" />
-      <workItem from="1559679371468" duration="15716000" />
+      <workItem from="1559679371468" duration="16251000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30811000" />
+    <option name="totallyTimeSpent" value="31346000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="1027" extended-state="6" />
@@ -693,22 +693,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/klanad_website/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="148" column="1" selection-start-line="148" selection-start-column="1" selection-end-line="148" selection-end-column="1" />
-          <folding>
-            <element signature="e#315#324#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/klanad_website/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="405">
           <caret line="27" column="27" lean-forward="true" selection-start-line="27" selection-start-column="27" selection-end-line="27" selection-end-column="27" />
           <folding>
             <element signature="e#638#670#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/klanad_website/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="135" column="34" selection-start-line="135" selection-start-column="34" selection-end-line="135" selection-end-column="34" />
+          <folding>
+            <element signature="e#315#324#0" expanded="true" />
           </folding>
         </state>
       </provider>
