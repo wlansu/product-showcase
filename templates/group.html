@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}{{ group.title }}{% endblock title %}
+
+{% block content %}
+	<section class="jumbotron text-center">
+		<div class="container">
+			<h1 class="jumbotron-header">{{ group.title }}</h1>
+			<img class="img-fluid" src="{{ group.productgroupimage_set.all.0.image.url }}" alt="image of a group">
+			<p class="lead text-muted">{{ group.description|linebreaks }}</p>
+		</div>
+	</section>
+	<div class="py-5 bg-light">
+		<div class="container">
+			<div class="row">
+				{% for product in group.product_set.all %}
+					<div class="col-md-4">
+						<div class="card mb-5 shadow-sm">
+							<div class="card-body h-100 text-center">
+								<img src="{{ product.productimage_set.all.0.image.url }}" alt="product image"
+									 class="card-img-top img-fluid">
+							</div>
+							<div class="card-body">
+								<p class="card-text">
+									<h1>{{ product.title }}</h1>
+									{{ product.description }}
+								</p>
+								<div class="d-flex justify-content-between align-items-center">
+									<div class="btn-group">
+										<a href="{% url 'product' product.id %}">View</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+{% endblock content %}

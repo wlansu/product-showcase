@@ -54,6 +54,26 @@ class Contact(ContactDetails):
         return self.__repr__()
 
 
+class ProductGroup(models.Model):
+    """A group of products."""
+
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    title = models.CharField(max_length=50, help_text="The name of the company.")
+    description = models.TextField(null=True, blank=True)
+
+    class Meta:
+        """Meta class."""
+
+        app_label = "klanad"
+
+    def __repr__(self) -> str:
+        """String representation of a Contact."""
+        return self.title
+
+    def __str__(self) -> str:
+        return self.__repr__()
+
+
 class Company(TimeStampedModel, Address, ContactDetails):
     """A Company."""
 
@@ -83,19 +103,14 @@ class Product(TimeStampedModel):
 
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     title = models.CharField(help_text="The title of the product.", max_length=256)
+    group = models.ForeignKey(
+        ProductGroup,
+        on_delete=CASCADE,
+        blank=True,
+        null=True,
+    )
     description = models.TextField(
         help_text="A description for the product.", null=True, blank=True
-    )
-    built_on = models.DateField(
-        help_text="The date the product was built or first released.",
-        null=True,
-        blank=True,
-    )
-    built_in = models.CharField(
-        help_text="The country the product was built in.",
-        max_length=50,
-        null=True,
-        blank=True,
     )
     position = models.PositiveIntegerField(
         help_text="The order in which products are shown, in ascending order.",
@@ -124,6 +139,27 @@ class Product(TimeStampedModel):
     def __repr__(self) -> str:
         """String representation of a Contact."""
         return f"{self.title}"
+
+    def __str__(self) -> str:
+        return self.__repr__()
+
+
+class ProductGroupImage(TimeStampedModel):
+    """Image for a ProductGroup."""
+
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    image = models.ImageField(upload_to="products")
+    group = models.ForeignKey(ProductGroup, on_delete=CASCADE)
+
+    class Meta:
+        """Meta class."""
+
+        app_label = "klanad"
+
+
+    def __repr__(self) -> str:
+        """String representation of a Contact."""
+        return f"Image for: {self.group.title}"
 
     def __str__(self) -> str:
         return self.__repr__()
