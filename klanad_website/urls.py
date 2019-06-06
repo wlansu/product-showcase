@@ -18,7 +18,7 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path
 
-import views
+from klanad import views
 
 
 urlpatterns = [
