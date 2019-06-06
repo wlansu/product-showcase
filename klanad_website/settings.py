@@ -134,6 +134,8 @@ AWS_S3_REGION_NAME = 'us-east-1'
 # http://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region
 AWS_S3_ENDPOINT_URL = 'https://s3-us-east-1.amazonaws.com'
 AWS_STORAGE_BUCKET_NAME = 'klanad1'
+AWS_ACCESS_KEY_ID = env("AWS_ACCESS_KEY_ID")
+AWS_SECRET_ACCESS_KEY = env("AWS_SECRET_ACCESS_KEY")
 
 S3DIRECT_DESTINATIONS = {
     'products': {
