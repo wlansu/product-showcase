@@ -13,8 +13,8 @@ django-heroku = "*"
 django-environ = "*"
 gunicorn = "*"
 psycopg2-binary = "*"
-django-webpack-loader = "*"
 whitenoise = "*"
+django-s3direct = "*"
 
 [requires]
 python_version = "3.7"
