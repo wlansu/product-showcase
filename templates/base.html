@@ -13,6 +13,20 @@
 		<title>Klanad - {% block title %}{% endblock title %}</title>
   	</head>
   	<body>
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active">
+						<a class="nav-link" href="{% url 'groups' %}">Home</a>
+					</li>
+				</ul>
+			</div>
+			<div class="float-right mr-5">
+				<img class="img-fluid" height="100rem" width="200rem" src="{% static 'klanad-logo.png' %}"
+					 alt="Klanad's
+				logo">
+			</div>
+		</nav>
 		<main role="main">
     		{% block content %}{% endblock content %}
 		</main>
