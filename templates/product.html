@@ -3,7 +3,7 @@
 {% block title %}{{ product.title }}{% endblock title %}
 
 {% block content %}
-	<section class="jumbotron text-center">
+	<section class="jumbotron text-center bg-klanad-light-grey">
 		<div class="container">
 			<h1 class="jumbotron-header">{{ product.title }}</h1>
 			<img class="img-fluid rounded" src="{{ product.productimage_set.all.0.image.url }}" alt="image of a product">
