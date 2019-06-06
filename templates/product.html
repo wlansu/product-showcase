@@ -3,10 +3,16 @@
 {% block title %}{{ product.title }}{% endblock title %}
 
 {% block content %}
+	<section class="jumbotron text-center">
+		<div class="container">
+			<h1 class="jumbotron-header">{{ product.title }}</h1>
+			<img class="img-fluid rounded" src="{{ product.productimage_set.all.0.image.url }}" alt="image of a product">
+			<p class="lead text-muted">{{ product.description|linebreaks }}</p>
+		</div>
+	</section>
+	{% if product.productimage_set.count > 2 %}
 	<div class="container">
 		<div class="row justify-content-center">
-			<h1>{{ product.title }}</h1>
-			<p>{{ product.description }}</p>
 			<div class="row">
 				{% for productimage in product.productimage_set.all %}
 					<div class="col-md-4">
@@ -21,4 +27,5 @@
 			</div>
 		</div>
 	</div>
+	{% endif %}
 {% endblock content %}
