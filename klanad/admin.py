@@ -23,13 +23,14 @@ class ProductImageInline(admin.TabularInline):
 class ProductAdmin(admin.ModelAdmin):
     """Product admin page."""
 
+    list_editable = ("position", "archived")
     inlines = [
         ProductImageInline,
     ]
 
 
 class ProductGroupImageInline(admin.TabularInline):
-    """Inline ProductImage for the Product admin."""
+    """Inline ProductImage for the ProductGroup admin."""
 
     model = ProductGroupImage
     readonly_fields = ('preview', )
@@ -43,6 +44,7 @@ class ProductGroupImageInline(admin.TabularInline):
 class ProductGroupAdmin(admin.ModelAdmin):
     """Product admin page."""
 
+    list_editable = ("position", "archived")
     inlines = [
         ProductGroupImageInline,
     ]
