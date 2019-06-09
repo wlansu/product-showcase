@@ -23,6 +23,7 @@ class ProductImageInline(admin.TabularInline):
 class ProductAdmin(admin.ModelAdmin):
     """Product admin page."""
 
+    list_display = ("position", "archived")
     list_editable = ("position", "archived")
     inlines = [
         ProductImageInline,
@@ -44,6 +45,7 @@ class ProductGroupImageInline(admin.TabularInline):
 class ProductGroupAdmin(admin.ModelAdmin):
     """Product admin page."""
 
+    list_display = ("position", "archived")
     list_editable = ("position", "archived")
     inlines = [
         ProductGroupImageInline,
