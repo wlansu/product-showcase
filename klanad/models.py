@@ -60,10 +60,19 @@ class ProductGroup(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     title = models.CharField(max_length=50, help_text="The name of the product group.")
     description = models.TextField(null=True, blank=True)
+    position = models.PositiveIntegerField(
+        help_text="The order in which product groups are shown, in ascending order.",
+        null=True,
+        blank=True,
+    )
+    archived = models.BooleanField(
+        default=False, help_text="ProductGroups which are archived are not shown."
+    )
 
     class Meta:
         """Meta class."""
 
+        ordering = ("position", )
         app_label = "klanad"
 
     def __repr__(self) -> str:

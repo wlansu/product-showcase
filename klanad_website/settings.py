@@ -30,6 +30,8 @@ SECRET_KEY = env("SECRET_KEY")
 
 DEBUG = env("DEBUG")
 
+SECURE_SSL_REDIRECT = env("SECURE_SSL_REDIRECT")
+
 ALLOWED_HOSTS = []
 
 # Application definition
