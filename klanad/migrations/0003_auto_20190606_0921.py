@@ -6,14 +6,12 @@ from django.db.models import FileField
 
 class Migration(migrations.Migration):
 
-    dependencies = [
-        ('klanad', '0002_auto_20190527_1816'),
-    ]
+    dependencies = [("klanad", "0002_auto_20190527_1816")]
 
     operations = [
         migrations.AlterField(
-            model_name='productimage',
-            name='image',
+            model_name="productimage",
+            name="image",
             field=FileField(upload_to="products/%Y/%m/%d"),
-        ),
+        )
     ]

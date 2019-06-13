@@ -17,9 +17,7 @@ import sentry_sdk
 from sentry_sdk.integrations.django import DjangoIntegration
 
 
-env = environ.Env(
-    DEBUG=(bool, False)
-)
+env = environ.Env(DEBUG=(bool, False))
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 environ.Env.read_env(env_file=os.path.join(BASE_DIR, ".env"))
 
@@ -52,7 +50,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -88,9 +86,7 @@ WSGI_APPLICATION = "klanad_website.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-DATABASES = {
-    'default': env("DATABASE_URL")
-}
+DATABASES = {"default": env("DATABASE_URL")}
 
 
 # Password validation
@@ -112,12 +108,12 @@ AUTH_PASSWORD_VALIDATORS = [
 LANGUAGE_CODE = "en-us"
 gettext = lambda s: s
 LANGUAGES = (
-    ('de', gettext('German')),
-    ('en', gettext('English')),
-    ('nl', gettext('Dutch')),
-    ('fr', gettext('French')),
+    ("de", gettext("German")),
+    ("en", gettext("English")),
+    ("nl", gettext("Dutch")),
+    ("fr", gettext("French")),
 )
-MODELTRANSLATION_DEFAULT_LANGUAGE = 'en'
+MODELTRANSLATION_DEFAULT_LANGUAGE = "en"
 
 TIME_ZONE = "UTC"
 
@@ -134,23 +130,21 @@ USE_TZ = True
 STATIC_URL = "/static/"
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
-]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
 
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 # The region of your bucket, more info:
 # http://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region
-AWS_S3_REGION_NAME = 'us-east-1'
+AWS_S3_REGION_NAME = "us-east-1"
 
 # The endpoint of your bucket, more info:
 # http://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region
-AWS_S3_ENDPOINT_URL = 'https://s3.us-east-1.amazonaws.com'
-AWS_STORAGE_BUCKET_NAME = 'klanad1'
+AWS_S3_ENDPOINT_URL = "https://s3.us-east-1.amazonaws.com"
+AWS_STORAGE_BUCKET_NAME = "klanad1"
 AWS_ACCESS_KEY_ID = env("AWS_ACCESS_KEY_ID")
 AWS_SECRET_ACCESS_KEY = env("AWS_SECRET_ACCESS_KEY")
 AWS_DEFAULT_ACL = "private"
@@ -159,10 +153,11 @@ AWS_S3_HOST = "s3.us-east-1.amazonaws.com"
 
 sentry_sdk.init(
     dsn="https://8407e52468864a039150c14f2a9c3ee2@sentry.io/1476234",
-    integrations=[DjangoIntegration()]
+    integrations=[DjangoIntegration()],
 )
 
 # Configure Django App for Heroku.
 import django_heroku
+
 django_heroku.settings(locals())
-del DATABASES['default']['OPTIONS']['sslmode']
+del DATABASES["default"]["OPTIONS"]["sslmode"]

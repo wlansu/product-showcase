@@ -9,27 +9,47 @@ import uuid
 
 class Migration(migrations.Migration):
 
-    dependencies = [
-        ('klanad', '0005_auto_20190606_1214'),
-    ]
+    dependencies = [("klanad", "0005_auto_20190606_1214")]
 
     operations = [
-        migrations.RemoveField(
-            model_name='product',
-            name='built_in',
-        ),
-        migrations.RemoveField(
-            model_name='product',
-            name='built_on',
-        ),
+        migrations.RemoveField(model_name="product", name="built_in"),
+        migrations.RemoveField(model_name="product", name="built_on"),
         migrations.CreateModel(
-            name='ProductGroupImage',
+            name="ProductGroupImage",
             fields=[
-                ('created', model_utils.fields.AutoCreatedField(default=django.utils.timezone.now, editable=False, verbose_name='created')),
-                ('modified', model_utils.fields.AutoLastModifiedField(default=django.utils.timezone.now, editable=False, verbose_name='modified')),
-                ('id', models.UUIDField(default=uuid.uuid4, editable=False, primary_key=True, serialize=False)),
-                ('image', models.ImageField(upload_to='products')),
-                ('group', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='klanad.ProductGroup')),
+                (
+                    "created",
+                    model_utils.fields.AutoCreatedField(
+                        default=django.utils.timezone.now,
+                        editable=False,
+                        verbose_name="created",
+                    ),
+                ),
+                (
+                    "modified",
+                    model_utils.fields.AutoLastModifiedField(
+                        default=django.utils.timezone.now,
+                        editable=False,
+                        verbose_name="modified",
+                    ),
+                ),
+                (
+                    "id",
+                    models.UUIDField(
+                        default=uuid.uuid4,
+                        editable=False,
+                        primary_key=True,
+                        serialize=False,
+                    ),
+                ),
+                ("image", models.ImageField(upload_to="products")),
+                (
+                    "group",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="klanad.ProductGroup",
+                    ),
+                ),
             ],
         ),
     ]

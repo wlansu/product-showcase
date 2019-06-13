@@ -3,11 +3,28 @@ from django.utils.html import format_html
 
 from modeltranslation.admin import TranslationAdmin
 
-from klanad.models import Product, Company, Contact, ProductImage, ProductGroupImage, ProductGroup, KlanadTranslations
+from klanad.models import (
+    Product,
+    Company,
+    Contact,
+    ProductImage,
+    ProductGroupImage,
+    ProductGroup,
+    KlanadTranslations,
+    GroupContainer,
+)
 
 
 admin.site.register(Company)
 admin.site.register(Contact)
+
+
+@admin.register(GroupContainer)
+class GroupContainerAdmin(TranslationAdmin):
+    """Admin for GroupContainers."""
+
+    list_display = ("title", "position")
+    list_editable = ("position",)
 
 
 @admin.register(KlanadTranslations)
@@ -19,12 +36,12 @@ class ProductImageInline(admin.TabularInline):
     """Inline ProductImage for the Product admin."""
 
     model = ProductImage
-    readonly_fields = ('preview', )
+    readonly_fields = ("preview",)
 
     def preview(self, obj: ProductImage) -> str:
         """Display a preview of the image."""
         html = '<a href="{url}" target="_blank"><img src="{url}" /></a>'
-        return format_html(''.join(html.format(url=obj.image.url)))
+        return format_html("".join(html.format(url=obj.image.url)))
 
 
 @admin.register(Product)
@@ -33,21 +50,19 @@ class ProductAdmin(TranslationAdmin):
 
     list_display = ("title", "position", "archived")
     list_editable = ("position", "archived")
-    inlines = [
-        ProductImageInline,
-    ]
+    inlines = [ProductImageInline]
 
 
 class ProductGroupImageInline(admin.TabularInline):
     """Inline ProductImage for the ProductGroup admin."""
 
     model = ProductGroupImage
-    readonly_fields = ('preview', )
+    readonly_fields = ("preview",)
 
     def preview(self, obj: ProductImage) -> str:
         """Display a preview of the image."""
         html = '<a href="{url}" target="_blank"><img src="{url}" /></a>'
-        return format_html(''.join(html.format(url=obj.image.url)))
+        return format_html("".join(html.format(url=obj.image.url)))
 
 
 @admin.register(ProductGroup)
@@ -56,6 +71,4 @@ class ProductGroupAdmin(TranslationAdmin):
 
     list_display = ("title", "position", "archived")
     list_editable = ("position", "archived")
-    inlines = [
-        ProductGroupImageInline,
-    ]
+    inlines = [ProductGroupImageInline]

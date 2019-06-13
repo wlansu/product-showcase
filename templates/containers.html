@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}product classes{% endblock title %}
+
+{% block content %}
+	<section class="jumbotron text-center bg-klanad-light-grey">
+		<div class="container">
+			<h1 class="jumbotron-header">{{ welcome_title }}</h1>
+			<p class="lead text-muted">{{ welcome_message }}</p>
+		</div>
+	</section>
+	<div class="py-5 bg-light">
+		{% for container in containers %}
+		<div class="container">
+			<div class="row">
+				<div class="card text-center mt-2">
+					<h3>{{ container.title }}</h3>
+					<div class="container">
+						<div class="row">
+							{% for group in container.productgroup_set.all %}
+								<a href="{% url 'group' group.id %}">
+								<div class="col-md-4">
+									<div class="card mb-5 shadow-sm">
+										<div class="card-body text-center">
+											<h6>{{ group.title }}</h6>
+											<div class="card-body h-100 text-center">
+												<img src="{{ group.productgroupimage_set.all.0.image.url }}" alt="product image"
+													 class="card-img-top img-fluid rounded img-responsive">
+											</div>
+										</div>
+									</div>
+								</div>
+								</a>
+							{% endfor %}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+{% endblock content %}
