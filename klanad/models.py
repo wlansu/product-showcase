@@ -173,7 +173,7 @@ class Product(TimeStampedModel):
     class Meta:
         """Meta class."""
 
-        ordering = ("position",)
+        ordering = ("group", "position",)
         app_label = "klanad"
 
     def __repr__(self) -> str:

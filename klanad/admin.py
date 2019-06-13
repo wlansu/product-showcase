@@ -55,8 +55,8 @@ class ProductImageInline(admin.TabularInline):
 class ProductAdmin(TranslationAdmin):
     """Product admin page."""
 
-    list_display = ("title", "position", "archived")
-    list_editable = ("position", "archived")
+    list_display = ("title", "position", "group", "archived")
+    list_editable = ("position", "group", "archived")
     inlines = [ProductImageInline]
 
 
