@@ -16,7 +16,7 @@
 				{% for group in container.productgroup_set.all %}
 					<div class="col-sm-4">
 						<a href="{% url 'group' group.id %}">
-							<div class="card">
+							<div class="card mb-1">
 								<div class="card-body">
 									<h6>{{ group.title }}</h6>
 									<div class="card-body h-100">
@@ -27,7 +27,6 @@
 							</div>
 						</a>
 					</div>
-					<br />
 				{% endfor %}
 			</div>
 		</div>
