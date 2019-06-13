@@ -3,15 +3,17 @@
 {% block title %}product classes{% endblock title %}
 
 {% block content %}
-	<section class="jumbotron text-center bg-klanad-light-grey">
-		<div class="container">
+	<section class="text-center">
+		<div class="container pt-3 bg-klanad-light-grey"">
 			<h1 class="jumbotron-header">{{ welcome_title }}</h1>
-			<p class="lead text-muted">{{ welcome_message }}</p>
+			<p class="lead text-muted pb-3">{{ welcome_message }}</p>
 		</div>
 	</section>
 		{% for container in containers %}
-		<div class="container text-center mt-3">
-			<h3>{{ container.title }}</h3>
+		<div class="container text-center bg-klanad-light-grey">
+			<div class="pt-2">
+				<h3>{{ container.title }}</h3>
+			</div>
 			<div class="row">
 				{% for group in container.productgroup_set.all %}
 					<div class="col-sm-4">
