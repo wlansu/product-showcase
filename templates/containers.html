@@ -9,34 +9,26 @@
 			<p class="lead text-muted">{{ welcome_message }}</p>
 		</div>
 	</section>
-	<div class="py-5 bg-light">
 		{% for container in containers %}
-		<div class="container">
+		<div class="container text-center mt-3">
+			<h3>{{ container.title }}</h3>
 			<div class="row">
-				<div class="card text-center mt-2">
-					<h3>{{ container.title }}</h3>
-					<div class="container">
-						<div class="row">
-							{% for group in container.productgroup_set.all %}
-								<a href="{% url 'group' group.id %}">
-								<div class="col-md-4">
-									<div class="card mb-5 shadow-sm">
-										<div class="card-body text-center">
-											<h6>{{ group.title }}</h6>
-											<div class="card-body h-100 text-center">
-												<img src="{{ group.productgroupimage_set.all.0.image.url }}" alt="product image"
-													 class="card-img-top img-fluid rounded img-responsive">
-											</div>
-										</div>
+				{% for group in container.productgroup_set.all %}
+					<div class="col-sm-4">
+						<a href="{% url 'group' group.id %}">
+							<div class="card">
+								<div class="card-body">
+									<h6>{{ group.title }}</h6>
+									<div class="card-body h-100">
+										<img src="{{ group.productgroupimage_set.all.0.image.url }}" alt="product image"
+											 class="card-img-top img-fluid rounded img-responsive">
 									</div>
 								</div>
-								</a>
-							{% endfor %}
-						</div>
+							</div>
+						</a>
 					</div>
-				</div>
+				{% endfor %}
 			</div>
 		</div>
 		{% endfor %}
-	</div>
 {% endblock content %}
