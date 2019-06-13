@@ -31,6 +31,13 @@ class GroupContainerAdmin(TranslationAdmin):
 class KlanadTranslationAdmin(TranslationAdmin):
     """Admin for the various dynamic fields of the website."""
 
+    def has_add_permission(self, request):
+        """Overloaded to prevent more than 1 object being created."""
+        if self.model.objects.count() > 1:
+            return False
+        else:
+            super().has_add_permission(request)
+
 
 class ProductImageInline(admin.TabularInline):
     """Inline ProductImage for the Product admin."""

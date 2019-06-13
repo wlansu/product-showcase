@@ -247,3 +247,10 @@ class KlanadTranslations(models.Model):
 
     def __str__(self) -> str:
         return self.__repr__()
+
+    def save(self, *args, **kwargs) -> None:
+        """Overloaded to prevent more than 1 of these objects existing."""
+        if self.__class__.objects.count() > 0:
+            return
+        else:
+            super().save(args, kwargs)
