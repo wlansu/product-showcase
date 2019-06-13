@@ -147,7 +147,7 @@ class Product(TimeStampedModel):
 
     def __repr__(self) -> str:
         """String representation of a Contact."""
-        return f"{self.title}"
+        return self.title
 
     def __str__(self) -> str:
         return self.__repr__()

@@ -1,6 +1,8 @@
 from django.contrib import admin
 from django.utils.html import format_html
 
+from modeltranslation.admin import TranslationAdmin
+
 from klanad.models import Product, Company, Contact, ProductImage, ProductGroupImage, ProductGroup
 
 
@@ -20,7 +22,7 @@ class ProductImageInline(admin.TabularInline):
         return format_html(''.join(html.format(url=obj.image.url)))
 
 
-class ProductAdmin(admin.ModelAdmin):
+class ProductAdmin(TranslationAdmin):
     """Product admin page."""
 
     list_display = ("title", "position", "archived")
@@ -42,7 +44,7 @@ class ProductGroupImageInline(admin.TabularInline):
         return format_html(''.join(html.format(url=obj.image.url)))
 
 
-class ProductGroupAdmin(admin.ModelAdmin):
+class ProductGroupAdmin(TranslationAdmin):
     """Product admin page."""
 
     list_display = ("title", "position", "archived")
