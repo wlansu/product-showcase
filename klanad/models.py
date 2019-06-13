@@ -198,3 +198,18 @@ class ProductImage(TimeStampedModel):
 
     def __str__(self) -> str:
         return self.__repr__()
+
+
+class KlanadTranslations(models.Model):
+    """Any fields in the website that have dynamic text."""
+
+    welcome_title = models.CharField(help_text="Title of the welcome message.", max_length=255)
+    welcome_message = models.TextField(help_text="Message shown on the landing page.")
+    footer_email_me = models.CharField(help_text="Message to email the owner of the site.", max_length=100)
+
+    def __repr__(self) -> str:
+        """String representation of a KlanadTranslation."""
+        return "Text fields"
+
+    def __str__(self) -> str:
+        return self.__repr__()

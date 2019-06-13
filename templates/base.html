@@ -10,13 +10,14 @@
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 		<link rel="stylesheet" href="{% static 'klanad.css' %}" />
 		<link rel="shortcut icon" href="{% static 'favicon.ico' %}"/>
+		<link href="{% static '/open-iconic/font/css/open-iconic-bootstrap.css' %}" rel="stylesheet">
 		<title>Klanad - {% block title %}{% endblock title %}</title>
   	</head>
   	<body>
 		<nav class="navbar navbar-light text-center nav-padding">
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item">
-					<a class="nav-link klanad-dark-grey" href="{% url 'groups' %}">Home</a>
+					<a class="nav-link klanad-dark-grey" href="{% url 'groups' %}"><span class="oi oi-home"></span></a>
 				</li>
 			</ul>
 			<div class="float-right mr-5">
@@ -30,8 +31,8 @@
 		</main>
 		<footer class="text-muted">
 			<div class="container">
-				<p class="float-right"><a href="#">Back to top</a></p>
-				<p>For more information please feel free to email me at:
+				<p class="float-right"><a href="#"><span class="oi oi-arrow-thick-top"></span></a></p>
+				<p>{{ footer_email_me }}:
 					<a href="mailto:karel.lansu@klanad.com">karel.lansu@klanad.com</a>
 				</p>
 			</div>

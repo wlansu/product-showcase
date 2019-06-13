@@ -3,11 +3,16 @@ from django.utils.html import format_html
 
 from modeltranslation.admin import TranslationAdmin
 
-from klanad.models import Product, Company, Contact, ProductImage, ProductGroupImage, ProductGroup
+from klanad.models import Product, Company, Contact, ProductImage, ProductGroupImage, ProductGroup, KlanadTranslations
 
 
 admin.site.register(Company)
 admin.site.register(Contact)
+
+
+@admin.register(KlanadTranslations)
+class KlanadTranslationAdmin(TranslationAdmin):
+    """Admin for the various dynamic fields of the website."""
 
 
 class ProductImageInline(admin.TabularInline):
@@ -22,6 +27,7 @@ class ProductImageInline(admin.TabularInline):
         return format_html(''.join(html.format(url=obj.image.url)))
 
 
+@admin.register(Product)
 class ProductAdmin(TranslationAdmin):
     """Product admin page."""
 
@@ -44,6 +50,7 @@ class ProductGroupImageInline(admin.TabularInline):
         return format_html(''.join(html.format(url=obj.image.url)))
 
 
+@admin.register(ProductGroup)
 class ProductGroupAdmin(TranslationAdmin):
     """Product admin page."""
 
@@ -52,7 +59,3 @@ class ProductGroupAdmin(TranslationAdmin):
     inlines = [
         ProductGroupImageInline,
     ]
-
-
-admin.site.register(Product, ProductAdmin)
-admin.site.register(ProductGroup, ProductGroupAdmin)

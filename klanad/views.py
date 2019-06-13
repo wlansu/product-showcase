@@ -3,12 +3,17 @@ import uuid
 from django.http import HttpRequest, HttpResponse, Http404
 from django.shortcuts import render
 
-from klanad.models import Product, ProductGroup
+from klanad.models import Product, ProductGroup, KlanadTranslations
 
 
 def groups(request: HttpRequest) -> HttpResponse:
     """Return a list of groups."""
-    return render(request, "groups.html", {"groups": ProductGroup.objects.filter(archived=False)})
+    translation = KlanadTranslations.objects.all()[0]
+    return render(request, "groups.html", {
+        "groups": ProductGroup.objects.filter(archived=False),
+        "welcome_title": translation.welcome_title,
+        "welcome_message": translation.welcome_message
+    })
 
 
 def group(request: HttpRequest, group_id: uuid) -> HttpResponse:
