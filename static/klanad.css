@@ -42,3 +42,7 @@ h1 {
     height: 15vw;
     object-fit: cover;
 }
+
+a:hover {
+    color: #626262;
+}

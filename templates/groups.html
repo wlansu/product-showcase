@@ -13,6 +13,7 @@
 		<div class="container">
 			<div class="row">
 				{% for group in groups %}
+					<a href="{% url 'group' group.id %}">
 					<div class="col-md-4">
 						<div class="card mb-5 shadow-sm">
 							<div class="card-body text-center">
@@ -21,12 +22,10 @@
 									<img src="{{ group.productgroupimage_set.all.0.image.url }}" alt="product image"
 										 class="card-img-top img-fluid rounded img-responsive">
 								</div>
-								<div class="text-center">
-									<a class="btn btn-klanad-orange" role="button" href="{% url 'group' group.id %}">View</a>
-								</div>
 							</div>
 						</div>
 					</div>
+					</a>
 				{% endfor %}
 			</div>
 		</div>

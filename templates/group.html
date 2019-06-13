@@ -16,6 +16,7 @@
 			<div class="row">
 				{% for product in group.product_set.all %}
 					<div class="col-md-4">
+						<a href="{% url 'product' product.id %}">
 						<div class="card mb-5 shadow-sm">
 							<div class="card-body h-100 text-center">
 								<img src="{{ product.productimage_set.all.0.image.url }}" alt="product image"
@@ -26,9 +27,9 @@
 								<p class="card-text">
 									{{ product.description }}
 								</p>
-								<a class="btn btn-klanad-orange" role="button" href="{% url 'product' product.id %}">View</a>
 							</div>
 						</div>
+						</a>
 					</div>
 				{% endfor %}
 			</div>
