@@ -24,7 +24,7 @@ class GroupContainerAdmin(TranslationAdmin):
     """Admin for GroupContainers."""
 
     list_display = ("title", "position")
-    list_editable = ("position",)
+    list_editable = ("position", )
 
 
 @admin.register(KlanadTranslations)
@@ -69,6 +69,6 @@ class ProductGroupImageInline(admin.TabularInline):
 class ProductGroupAdmin(TranslationAdmin):
     """Product admin page."""
 
-    list_display = ("title", "position", "archived")
-    list_editable = ("position", "archived")
+    list_display = ("title", "position", "container", "archived")
+    list_editable = ("position", "container", "archived")
     inlines = [ProductGroupImageInline]

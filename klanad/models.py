@@ -132,7 +132,7 @@ class ProductGroup(models.Model):
     class Meta:
         """Meta class."""
 
-        ordering = ("position",)
+        ordering = ("container", "position",)
         app_label = "klanad"
 
     def __repr__(self) -> str:
