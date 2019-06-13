@@ -8,16 +8,19 @@ from klanad.models import Product, ProductGroup, KlanadTranslations, GroupContai
 
 def containers(request: HttpRequest) -> HttpResponse:
     """Return a list of containers."""
-    translation = KlanadTranslations.objects.all()[0]
-    return render(
-        request,
-        "containers.html",
-        {
+    try:
+        translation = KlanadTranslations.objects.all()[0]
+        context = {
             "containers": GroupContainer.objects.all(),
             "welcome_title": translation.welcome_title,
             "welcome_message": translation.welcome_message,
-        },
-    )
+        }
+    except IndexError:
+        context = {
+            "containers": GroupContainer.objects.all(),
+        }
+
+    return render(request, "containers.html", context)
 
 
 def groups(request: HttpRequest) -> HttpResponse:
